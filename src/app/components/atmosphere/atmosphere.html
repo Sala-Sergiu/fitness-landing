@@ -1,0 +1,55 @@
+<section id="atmosfera" class="px-6 py-16">
+  <div class="mx-auto max-w-5xl">
+
+    <div class="mb-10 text-center">
+      <p class="animate-fade-in mb-2 text-sm font-semibold uppercase tracking-widest text-lime-400">
+        Cum arată
+      </p>
+      <h2 class="animate-fade-in text-3xl font-bold sm:text-4xl" style="animation-delay: 0.1s;">
+        Atmosferă
+      </h2>
+      <p class="animate-fade-in mt-3 text-neutral-400" style="animation-delay: 0.2s;">
+        Un mediu motivant, serios și prietenos în același timp.
+      </p>
+    </div>
+
+    <div class="flex gap-4"
+         style="height: 520px;"
+         [class.photos-hidden]="!isVisible"
+         [class.photos-visible]="isVisible">
+      <!-- Poza mare stânga -->
+      <div class="w-1/2 overflow-hidden rounded-3xl">
+        <img [src]="activePhoto.src"
+             [alt]="activePhoto.alt"
+             class="h-full w-full object-cover" />
+      </div>
+
+      <!-- Coloana dreapta -->
+      <div class="flex w-1/2 flex-col gap-4">
+
+        <!-- Sus: 2 poze mici — înălțime fixă -->
+        <div class="flex gap-4" style="height: 240px;">
+          <div class="w-1/2 overflow-hidden rounded-3xl">
+            <img [src]="smallPhotos[0].src"
+                 [alt]="smallPhotos[0].alt"
+                 class="h-full w-full object-cover" />
+          </div>
+          <div class="w-1/2 overflow-hidden rounded-3xl">
+            <img [src]="smallPhotos[1].src"
+                 [alt]="smallPhotos[1].alt"
+                 class="h-full w-full object-cover" />
+          </div>
+        </div>
+
+        <!-- Jos: poza lata — ocupă restul -->
+        <div class="flex-1 overflow-hidden rounded-3xl">
+          <img [src]="smallPhotos[2].src"
+               [alt]="smallPhotos[2].alt"
+               class="h-full w-full object-cover" />
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

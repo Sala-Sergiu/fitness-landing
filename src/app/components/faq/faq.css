@@ -1,0 +1,13 @@
+.faq-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.faq-open {
+  max-height: 300px;
+}
+
+.faq-item-open {
+  border-color: rgba(163, 230, 53, 0.3); /* lime-400 / 30% */
+}

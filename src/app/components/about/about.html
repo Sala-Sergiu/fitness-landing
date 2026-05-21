@@ -1,0 +1,38 @@
+<section id="despre" class="px-6 py-16">
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-12 lg:flex-row">
+
+    <!-- Stânga: foto antrenor -->
+    <div class="animate-slide-left w-full max-w-sm flex-shrink-0 lg:w-80" style="animation-delay: 0.1s;">
+      <div class="aspect-[3/4] w-full overflow-hidden rounded-3xl">
+        <img src="images/trainer-image.webp"
+             alt="Antrenor personal"
+             class="h-full w-full object-cover object-top" />
+      </div>
+    </div>
+
+    <!-- Dreapta: text -->
+    <div class="flex-1 text-center lg:text-left">
+      <p class="animate-fade-in mb-2 text-sm font-semibold uppercase tracking-widest text-lime-400">
+        Cine sunt
+      </p>
+      <h2 class="animate-fade-in mb-6 text-3xl font-bold" style="animation-delay: 0.1s;">
+        Despre mine
+      </h2>
+      <p class="animate-slide-up text-base leading-relaxed text-neutral-300" style="animation-delay: 0.25s;">
+        Sunt un antrenor personal dedicat să te ajute să construiești forță, disciplină și obiceiuri sănătoase.
+        Cred că fiecare om are potențialul de a se transforma — ai nevoie doar de un plan clar și de sprijinul potrivit.
+        Lucrez cu oameni la toate nivelurile, de la începători până la avansați.
+      </p>
+
+      <!-- Tag-uri -->
+      <div class="animate-slide-up mt-8 flex flex-wrap justify-center gap-3 lg:justify-start" style="animation-delay: 0.4s;">
+        @for (tag of tags; track tag) {
+        <span class="rounded-full border border-neutral-700 px-4 py-1.5 text-xs text-neutral-400">
+          {{ tag }}
+        </span>
+        }
+      </div>
+    </div>
+
+  </div>
+</section>

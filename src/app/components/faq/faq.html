@@ -1,0 +1,47 @@
+<section id="faq" class="px-6 py-16">
+  <div class="mx-auto max-w-2xl">
+
+    <div class="mb-10 text-center">
+      <p class="animate-fade-in mb-2 text-sm font-semibold uppercase tracking-widest text-lime-400">
+        Întrebări frecvente
+      </p>
+      <h2 class="animate-fade-in text-3xl font-bold sm:text-4xl" style="animation-delay: 0.1s;">
+        FAQ
+      </h2>
+      <p class="animate-fade-in mt-3 text-neutral-400" style="animation-delay: 0.2s;">
+        Răspunsuri la cele mai comune întrebări.
+      </p>
+    </div>
+
+    <div class="space-y-3">
+      @for (item of faqs; track item.question; let i = $index) {
+        <div
+          class="animate-slide-up overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 transition-colors duration-300"
+          [class.faq-item-open]="isOpen(i)"
+          [style.animation-delay]="i * 0.08 + 0.2 + 's'"
+        >
+          <button
+            (click)="toggle(i)"
+            class="flex w-full items-center justify-between px-6 py-5 text-left transition-colors duration-200 hover:bg-neutral-800"
+          >
+            <span class="pr-4 font-medium text-white">{{ item.question }}</span>
+            <span
+              class="flex-shrink-0 text-xl text-lime-400 transition-transform duration-300"
+              [class.rotate-45]="isOpen(i)"
+            >
+              +
+            </span>
+          </button>
+
+          <div class="faq-body" [class.faq-open]="isOpen(i)">
+            <p class="px-6 pb-5 text-sm leading-relaxed text-neutral-400">
+              {{ item.answer }}
+            </p>
+          </div>
+
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

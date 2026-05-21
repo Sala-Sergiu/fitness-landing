@@ -1,0 +1,11 @@
+.fallback {
+  background: linear-gradient(135deg, rgba(163, 230, 53, 0.2), #262626, #171717);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .fallback::after {
+    content: '🏋️';
+    font-size: 5rem;
+  }

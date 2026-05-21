@@ -1,0 +1,9 @@
+.photos-hidden {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.photos-visible {
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}

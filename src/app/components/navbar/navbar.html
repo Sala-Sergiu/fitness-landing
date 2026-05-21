@@ -1,0 +1,54 @@
+<nav class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/90 px-6 py-4 backdrop-blur-sm">
+  <div class="mx-auto flex max-w-5xl items-center justify-between">
+
+    <!-- Logo -->
+    <a href="#" class="text-lg font-bold text-lime-400">{{ coach.name }}</a>
+
+    <!-- Link-uri desktop -->
+    <ul class="hidden items-center gap-8 md:flex">
+      @for (link of navLinks; track link.label) {
+      <li>
+        <button (click)="scrollTo(link.href)"
+                class="text-sm text-neutral-300 transition-colors duration-200 hover:text-lime-400 cursor-pointer">
+          {{ link.label }}
+        </button>
+      </li>
+      }
+    </ul>
+
+    <!-- Buton contact desktop -->
+    <button (click)="scrollTo('#contact')"
+            class="hidden rounded-full bg-lime-400 px-5 py-2 text-sm font-semibold text-neutral-950 transition-transform duration-200 hover:scale-105 md:block cursor-pointer">
+      Contactează-mă
+    </button>
+
+    <!-- Buton hamburger mobil -->
+    <button (click)="toggleMenu()"
+            class="flex flex-col gap-1.5 md:hidden"
+            aria-label="Deschide meniul">
+      <span class="block h-0.5 w-6 rounded-full bg-white transition-all duration-300"
+            [class.rotate-45]="menuOpen" [class.translate-y-2]="menuOpen"></span>
+      <span class="block h-0.5 w-6 rounded-full bg-white transition-all duration-300"
+            [class.opacity-0]="menuOpen"></span>
+      <span class="block h-0.5 w-6 rounded-full bg-white transition-all duration-300"
+            [class.-rotate-45]="menuOpen" [class.-translate-y-2]="menuOpen"></span>
+    </button>
+
+  </div>
+
+  <!-- Meniu mobil -->
+  @if (menuOpen) {
+  <div class="mt-4 flex flex-col gap-4 border-t border-neutral-800 pt-4 md:hidden">
+    @for (link of navLinks; track link.label) {
+    <button (click)="scrollTo(link.href); closeMenu()"
+            class="text-left text-sm text-neutral-300 transition-colors duration-200 hover:text-lime-400 cursor-pointer">
+      {{ link.label }}
+    </button>
+    }
+    <button (click)="scrollTo('#contact'); closeMenu()"
+            class="mt-2 rounded-full bg-lime-400 py-3 text-center text-sm font-semibold text-neutral-950 cursor-pointer">
+      Contactează-mă
+    </button>
+  </div>
+  }
+</nav>

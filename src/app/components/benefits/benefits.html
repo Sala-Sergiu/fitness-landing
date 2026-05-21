@@ -1,0 +1,27 @@
+<section id="beneficii" class="px-6 py-16">
+  <div class="mx-auto max-w-xl">
+    <div class="mb-10 text-center">
+      <p class="animate-fade-in mb-2 text-sm font-semibold uppercase tracking-widest text-lime-400">
+        Avantaje
+      </p>
+      <h2 class="animate-fade-in mb-4 text-center text-3xl font-bold" style="animation-delay: 0.1s;">
+        De ce să lucrezi cu mine
+      </h2>
+      <p class="animate-fade-in text-base text-neutral-400" style="animation-delay: 0.2s;">
+        Nu îți ofer un program generic. Îți ofer un plan construit în jurul tău —
+        al nivelului tău, al obiectivelor tale și al timpului pe care îl ai disponibil.
+      </p>
+    </div>
+
+    <ul class="space-y-4">
+      @for (benefit of benefits; track benefit.title; let i = $index) {
+      <li #benefitItem
+          class="benefit-item rounded-xl border border-neutral-800 bg-neutral-900 px-6 py-5 transition-all duration-300 hover:border-lime-400/40 hover:bg-neutral-800"
+          [style.transition-delay]="i * 0.1 + 's'">
+        <p class="font-semibold text-white">{{ benefit.title }}</p>
+        <p class="mt-1 text-sm leading-relaxed text-neutral-400">{{ benefit.description }}</p>
+      </li>
+      }
+    </ul>
+  </div>
+</section>
