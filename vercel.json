@@ -1,0 +1,5 @@
+{
+  "buildCommand": "ng build",
+  "outputDirectory": "dist/fitness-coach-landing/browser",
+  "framework": null
+}
