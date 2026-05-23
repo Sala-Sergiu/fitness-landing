@@ -13,12 +13,14 @@
         Construiește forță, disciplină și încredere printr-un plan adaptat pentru tine.
       </p>
       <div class="animate-slide-left mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start" style="animation-delay: 0.5s;">
-        <a href="#contact" class="rounded-full bg-lime-400 px-8 py-3 font-semibold text-neutral-950 transition-transform duration-200 hover:scale-105">
+        <button (click)="scrollTo('#contact')"
+                class="cursor-pointer rounded-full bg-lime-400 px-8 py-3 font-semibold text-neutral-950 transition-transform duration-200 hover:scale-105">
           Programează-te
-        </a>
-        <a href="#servicii" class="rounded-full border border-neutral-600 px-8 py-3 font-semibold text-white transition-transform duration-200 hover:scale-105">
+        </button>
+        <button (click)="scrollTo('#servicii')"
+                class="cursor-pointer rounded-full border border-neutral-600 px-8 py-3 font-semibold text-white transition-transform duration-200 hover:scale-105">
           Vezi serviciile
-        </a>
+        </button>
       </div>
 
       <!-- Statistici cu counter animat -->
@@ -34,10 +36,10 @@
 
     <!-- Dreapta: poza antrenor -->
     <div class="animate-slide-right w-full max-w-sm flex-1 lg:max-w-none" style="animation-delay: 0.3s;">
-      <div class="aspect-[3/4] w-full overflow-hidden rounded-3xl transition-transform duration-500 hover:scale-105">
-        <img src="images/hero-trainer.webp"
-             alt="Antrenor personal"
-             class="h-full w-full object-cover object-top" />
+      <div class="aspect-[3/4] w-full overflow-hidden rounded-3xl transition-transform duration-500">
+        <app-image-card src="images/hero-trainer.webp"
+                        alt="Antrenor personal"
+                        objectPosition="top" />
       </div>
     </div>
 

@@ -8,10 +8,11 @@ import { Footer } from "./components/footer/footer";
 import { Navbar } from "./components/navbar/navbar";
 import { Atmosphere } from './components/atmosphere/atmosphere';
 import { Faq } from './components/faq/faq';
+import { ImageCard } from './components/image-card/image-card';
 
 @Component({
   selector: 'app-root',
-  imports: [Hero, Services, Benefits, About, Contact, Footer, Navbar, Atmosphere, Faq],
+  imports: [Hero, Services, Benefits, About, Contact, Footer, Navbar, Atmosphere, Faq, ImageCard],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

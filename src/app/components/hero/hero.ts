@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
+import { ImageCard } from '../image-card/image-card';
 
 interface Stat {
   label: string;
@@ -9,7 +10,7 @@ interface Stat {
 
 @Component({
   selector: 'app-hero',
-  imports: [],
+  imports: [ImageCard],
   templateUrl: './hero.html',
   styleUrl: './hero.css',
 })
@@ -21,6 +22,13 @@ export class Hero implements OnInit {
   ];
 
   constructor(private ngZone: NgZone, private cdr: ChangeDetectorRef) { }
+
+  scrollTo(sectionId: string): void {
+    const el = document.querySelector(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
 
   ngOnInit(): void {
     this.ngZone.runOutsideAngular(() => {

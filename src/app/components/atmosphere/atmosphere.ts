@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { ImageCard } from '../image-card/image-card';
 
 interface AtmospherePhoto {
   src: string;
@@ -7,13 +8,16 @@ interface AtmospherePhoto {
 
 @Component({
   selector: 'app-atmosphere',
-  imports: [],
+  imports: [ImageCard],
   templateUrl: './atmosphere.html',
   styleUrl: './atmosphere.css',
 })
 export class Atmosphere implements OnInit, OnDestroy {
   isVisible = true;
   activeIndex = 0;
+
+  // Index pentru perechea de mobil (0 = pozele 0+1, 1 = pozele 2+3)
+  mobilePairIndex = 0;
 
   photos: AtmospherePhoto[] = [
     { src: 'images/atmosphere-1.webp', alt: 'Atmosferă antrenament 1' },
@@ -22,12 +26,16 @@ export class Atmosphere implements OnInit, OnDestroy {
     { src: 'images/atmosphere-4.webp', alt: 'Atmosferă antrenament 4' },
   ];
 
-  // Poza mica activa in pozitia mare - porneste cu prima
   activePhoto: AtmospherePhoto = this.photos[0];
 
-  // Pozele mici sunt mereu celelalte 3
   get smallPhotos(): AtmospherePhoto[] {
     return this.photos.filter((_, i) => i !== this.activeIndex);
+  }
+
+  // Perechea activa pe mobil
+  get mobilePair(): AtmospherePhoto[] {
+    const start = this.mobilePairIndex * 2;
+    return [this.photos[start], this.photos[start + 1]];
   }
 
   private intervalId: ReturnType<typeof setInterval> | null = null;
@@ -47,6 +55,7 @@ export class Atmosphere implements OnInit, OnDestroy {
           this.ngZone.run(() => {
             this.activeIndex = (this.activeIndex + 1) % this.photos.length;
             this.activePhoto = this.photos[this.activeIndex];
+            this.mobilePairIndex = (this.mobilePairIndex + 1) % 2;
             this.isVisible = true;
             this.cdr.detectChanges();
           });

@@ -4,18 +4,31 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EHHK4SXRC2"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-EHHK4SXRC2');
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-EHHK4SXRC2');
   </script>
+
   <meta charset="utf-8">
-  <title>FitnessCoachLanding</title>
+  <title>FitCoach — Personal Trainer Oradea</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta name="google-site-verification" content="681t7GjNp_KggvHZ5doTpKStZj6dCCalY9TNRC6ux0A" />
+
+  <style>
+    /* Previne FOUC — ascunde pagina pana Angular incarca stilurile */
+    body {
+      background-color: #0a0a0a;
+      visibility: hidden;
+    }
+
+    app-root:not(:empty) ~ *,
+    app-root:not(:empty) {
+      visibility: visible;
+    }
+  </style>
 </head>
 <body>
   <app-root></app-root>

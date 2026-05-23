@@ -13,39 +13,51 @@
       </p>
     </div>
 
-    <div class="flex gap-4"
+    <!-- MOBIL: 2 casute egale -->
+    <div class="flex gap-4 md:hidden"
+         style="height: 280px;"
+         [class.photos-hidden]="!isVisible"
+         [class.photos-visible]="isVisible">
+      <div class="w-1/2 overflow-hidden rounded-3xl">
+        <app-image-card [src]="mobilePair[0].src"
+                        [alt]="mobilePair[0].alt" />
+      </div>
+      <div class="w-1/2 overflow-hidden rounded-3xl">
+        <app-image-card [src]="mobilePair[1].src"
+                        [alt]="mobilePair[1].alt" />
+      </div>
+    </div>
+
+    <!-- DESKTOP: layout complet -->
+    <div class="hidden gap-4 md:flex"
          style="height: 520px;"
          [class.photos-hidden]="!isVisible"
          [class.photos-visible]="isVisible">
       <!-- Poza mare stânga -->
       <div class="w-1/2 overflow-hidden rounded-3xl">
-        <img [src]="activePhoto.src"
-             [alt]="activePhoto.alt"
-             class="h-full w-full object-cover" />
+        <app-image-card [src]="activePhoto.src"
+                        [alt]="activePhoto.alt" />
       </div>
 
       <!-- Coloana dreapta -->
       <div class="flex w-1/2 flex-col gap-4">
 
-        <!-- Sus: 2 poze mici — înălțime fixă -->
+        <!-- Sus: 2 poze mici -->
         <div class="flex gap-4" style="height: 240px;">
           <div class="w-1/2 overflow-hidden rounded-3xl">
-            <img [src]="smallPhotos[0].src"
-                 [alt]="smallPhotos[0].alt"
-                 class="h-full w-full object-cover" />
+            <app-image-card [src]="smallPhotos[0].src"
+                            [alt]="smallPhotos[0].alt" />
           </div>
           <div class="w-1/2 overflow-hidden rounded-3xl">
-            <img [src]="smallPhotos[1].src"
-                 [alt]="smallPhotos[1].alt"
-                 class="h-full w-full object-cover" />
+            <app-image-card [src]="smallPhotos[1].src"
+                            [alt]="smallPhotos[1].alt" />
           </div>
         </div>
 
-        <!-- Jos: poza lata — ocupă restul -->
+        <!-- Jos: poza lata -->
         <div class="flex-1 overflow-hidden rounded-3xl">
-          <img [src]="smallPhotos[2].src"
-               [alt]="smallPhotos[2].alt"
-               class="h-full w-full object-cover" />
+          <app-image-card [src]="smallPhotos[2].src"
+                          [alt]="smallPhotos[2].alt" />
         </div>
 
       </div>
