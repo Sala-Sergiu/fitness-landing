@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @source "./**/*.{html,ts}";
 
+html, body {
+  /* Previne scroll-ul orizontal cauzat de elementele animate care ies din viewport */
+  overflow-x: hidden;
+}
+
 body {
   background-color: #0a0a0a;
   color: #ffffff;
