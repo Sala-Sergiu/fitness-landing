@@ -6,7 +6,6 @@ body {
   color: #ffffff;
   margin: 0;
   scroll-behavior: smooth;
-  visibility: visible; /* dezactiveaza hidden dupa ce styles.css s-a incarcat */
 }
 
 /* ── Background animat ── */
