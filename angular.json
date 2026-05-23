@@ -18,6 +18,7 @@
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "css",
             "assets": [
               "src/favicon.ico",
               "src/assets",
@@ -39,7 +40,8 @@
             ],
             "styles": [
               "src/styles.css"
-            ]
+            ],
+            "stylePreprocessorOptions": {}
           },
           "configurations": {
             "production": {
@@ -55,7 +57,8 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "inlineCritical": true
             },
             "development": {
               "optimization": false,

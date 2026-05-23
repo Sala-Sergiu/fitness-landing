@@ -18,11 +18,31 @@
   <meta name="google-site-verification" content="681t7GjNp_KggvHZ5doTpKStZj6dCCalY9TNRC6ux0A" />
 
   <style>
+    /* Stiluri critice inline — previn FOUC inainte ca Tailwind sa se incarce */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
       background-color: #0a0a0a;
       color: #ffffff;
       margin: 0;
+      font-family: ui-sans-serif, system-ui, sans-serif;
     }
+
+    app-root {
+      display: block;
+    }
+
+      /* Ascunde continutul pana CSS-ul principal este incarcat */
+      app-root:empty {
+        display: none;
+      }
+
+      /* Navbar placeholder pentru a preveni layout shift */
+      app-root > * {
+        opacity: 1;
+      }
   </style>
 </head>
 <body>
