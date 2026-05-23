@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EHHK4SXRC2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -15,37 +15,46 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <meta name="google-site-verification" content="681t7GjNp_KggvHZ5doTpKStZj6dCCalY9TNRC6ux0A" />
 
   <style>
-    /* Stiluri critice inline — previn FOUC inainte ca Tailwind sa se incarce */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
-    body {
+    /* Fortam tot body-ul sa fie negru instataneu */
+    html, body {
       background-color: #0a0a0a;
-      color: #ffffff;
       margin: 0;
-      font-family: ui-sans-serif, system-ui, sans-serif;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
     }
 
-    app-root {
-      display: block;
+    /* Ecranul de incarcare care sta PESTE aplicatie cat timp e stricata */
+    .initial-loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #0a0a0a;
+      z-index: 99999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-
-      /* Ascunde continutul pana CSS-ul principal este incarcat */
-      app-root:empty {
-        display: none;
-      }
-
-      /* Navbar placeholder pentru a preveni layout shift */
-      app-root > * {
-        opacity: 1;
-      }
   </style>
 </head>
 <body>
-  <app-root></app-root>
+  <!-- Ce e inauntru la app-root e sters automat de Angular cand e gata -->
+  <app-root>
+    <div class="initial-loader">
+      <!-- Un mic spinner verde care sa arate ca se incarca -->
+      <svg width="40" height="40" viewBox="0 0 50 50" stroke="#a3e635">
+        <g fill="none" fill-rule="evenodd" stroke-width="4">
+          <circle cx="25" cy="25" r="20" stroke-opacity=".2" />
+          <path d="M25 5c0 0 0 0 0 0a20 20 0 0 1 20 20">
+            <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="1s" repeatCount="indefinite" />
+          </path>
+        </g>
+      </svg>
+    </div>
+  </app-root>
 </body>
 </html>
